@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Tool - Landing Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="{{ url_for('landing_page') }}">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+            </a>
+            <div class="navbar-links">
+                <a href="{{ url_for('merge_page') }}" class="nav-link">Merge PDF</a>
+                <a href="{{ url_for('split_page') }}" class="nav-link">Split PDF</a>
+                <a href="{{ url_for('compress_page') }}" class="nav-link">Compress PDF</a>
+            </div>
+        </div>
+    </nav>
+    <div class="landing-container">
+        <div class="landing-content">
+            <h1 class="landing-title">PDF Made Easy For You</h1>
+            <p class="landing-subtitle">All the tools you’ll need to be more productive and work smarter with documents.</p>
+            <a href="{{ url_for('merge_page') }}" class="get-started-button">Get Started</a>
+        </div>
+    </div>
+</body>
+</html>

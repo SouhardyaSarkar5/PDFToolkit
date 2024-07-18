@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Merge PDF Files</h1>
+    <form action="/merge" method="post" enctype="multipart/form-data">
+        <label for="file-upload" class="custom-file-upload">
+            Upload Files
+        </label>
+        <input id="file-upload" type="file" name="files" accept=".pdf" multiple required onchange="displayFileNames(this)">
+        <div id="file-list"></div>
+        <button type="submit">Merge PDFs</button>
+    </form>
+    {% if merged_filename %}
+        <a href="{{ url_for('download', filename=merged_filename) }}" class="download-button" download>Download Merged PDF</a>
+    {% endif %}
+{% endblock %}

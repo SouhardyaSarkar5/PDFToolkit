@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Compress PDF File</h1>
+    <form action="/compress" method="post" enctype="multipart/form-data">
+        <label for="compress-file-upload" class="custom-file-upload">
+            Upload File
+        </label>
+        <input id="compress-file-upload" type="file" name="file" accept=".pdf" required onchange="displayFileName(this, 'compress-file-list')">
+        <div id="compress-file-list"></div>
+
+        <label for="compression-percentage">Compression Percentage:</label>
+        <input type="range" id="compression-percentage" name="compression_percentage" min="1" max="100" value="50" oninput="this.nextElementSibling.value = this.value">
+        <output>50</output>
+
+        <button type="submit">Compress PDF</button>
+    </form>
+    {% if compressed_filename %}
+        <a href="{{ url_for('download', filename=compressed_filename) }}" class="download-button" download>Download Compressed PDF</a>
+    {% endif %}
+{% endblock %}
